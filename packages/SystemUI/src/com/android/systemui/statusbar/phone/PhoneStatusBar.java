@@ -464,6 +464,9 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                     Settings.System.NAVBAR_LEFT_IN_LANDSCAPE), false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.Secure.getUriFor(
                     Settings.Secure.RECENTS_LONG_PRESS_ACTIVITY), false, this);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.STATUS_BAR_TICKER_ENABLED),
+                    false, this, UserHandle.USER_ALL);
             update();
         }
 
@@ -521,6 +524,11 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 
             // This method reads Settings.Secure.RECENTS_LONG_PRESS_ACTIVITY
             updateCustomRecentsLongPressHandler(false);
+
+            mTickerEnabled = Settings.System.getIntForUser(
+                    resolver, Settings.System.STATUS_BAR_TICKER_ENABLED,
+                    mContext.getResources().getBoolean(R.bool.enable_ticker)
+                            ? 1 : 0, UserHandle.USER_CURRENT) == 1;
         }
     }
 
@@ -1076,7 +1084,10 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                         R.id.keyguard_indication_text));
         mKeyguardBottomArea.setKeyguardIndicationController(mKeyguardIndicationController);
 
-        mTickerEnabled = res.getBoolean(R.bool.enable_ticker);
+        mTickerEnabled = Settings.System.getIntForUser(mContext.getContentResolver(),
+                    Settings.System.STATUS_BAR_TICKER_ENABLED,
+                    mContext.getResources().getBoolean(R.bool.enable_ticker)
+                            ? 1 : 0, UserHandle.USER_CURRENT) == 1;
         if (mTickerEnabled) {
             final ViewStub tickerStub = (ViewStub) mStatusBarView.findViewById(R.id.ticker_stub);
             if (tickerStub != null) {
