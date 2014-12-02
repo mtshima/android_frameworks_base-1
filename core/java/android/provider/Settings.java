@@ -6059,6 +6059,13 @@ public final class Settings {
          */
         public static final String QS_LOCATION_ADVANCED = "qs_location_advanced";
 
+        /**		
+         * Whether user is allowed to pull down quick settings on secure keyguard.
+         * @hide
+         */
+        public static final String STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD
+                = "status_bar_locked_on_secure_keyguard";		
+
         /**
          * Custom navring actions
          * @hide
@@ -6187,7 +6194,8 @@ public final class Settings {
             SLEEP_TIMEOUT,
             PRIVACY_GUARD_DEFAULT,
             ADVANCED_REBOOT,
-            DEVELOPMENT_SHORTCUT
+            DEVELOPMENT_SHORTCUT,
+            STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD
         };
 
         /**
