@@ -2243,6 +2243,13 @@ public final class Settings {
         public static final String QS_USE_MAIN_TILES = Secure.QS_USE_MAIN_TILES;
 
         /**
+         * Quick Settings Smart Pulldown
+         *
+         * @hide
+         */
+        public static final String QS_SMART_PULLDOWN = "qs_smart_pulldown";
+
+        /**
          * Whether to enable ticker animation in statusbar
          *
          * @hide
