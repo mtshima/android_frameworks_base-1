@@ -3642,7 +3642,14 @@ public final class Settings {
         public static final String NETWORK_TRAFFIC_COLOR = "network_traffic_color";
 
         /**
+         * volume answer
+         * @hide
+         */
+        public static final String ANSWER_VOLUME_BUTTON_BEHAVIOR_ANSWER = "call_volume_answer";
+
+        /**
          * show the membar in recents
+         *
          *  @hide
          */
         public static final String SYSTEMUI_RECENTS_MEM_DISPLAY = "systemui_recents_mem_display";
