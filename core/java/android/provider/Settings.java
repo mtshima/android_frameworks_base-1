@@ -3630,7 +3630,15 @@ public final class Settings {
         public static final String NETWORK_TRAFFIC_COLOR = "network_traffic_color";
 
         /**
+         * show the membar in recents
+         *  @hide
+         */
+        public static final String SYSTEMUI_RECENTS_MEM_DISPLAY = "systemui_recents_mem_display";
+
+        /**
          * Define when Nfc polling is activated.
+         *
+         * @hide
          */
         public static final String NFC_POLLING_MODE = "nfc_polling";
 
